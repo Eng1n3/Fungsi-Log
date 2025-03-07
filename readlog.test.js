@@ -37,4 +37,14 @@ describe("countRequestsInLastHour", () => {
       expect(error.message).toMatch("Masukkan file path dengan benar!");
     }
   });
+
+  test("menghitung jumlah request lebih dari 1 jam", async () => {
+    // Mock Date agar new Date() selalu mengembalikan waktu tertentu
+    jest.useFakeTimers().setSystemTime(new Date("2024-10-22T12:00:00Z"));
+
+    const result = await countRequestsInLastHour(logFilePath);
+    expect(result).toEqual({});
+
+    jest.useRealTimers(); // Kembalikan waktu asli setelah test selesai
+  });
 });
