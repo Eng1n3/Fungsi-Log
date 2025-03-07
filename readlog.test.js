@@ -24,7 +24,6 @@ describe("countRequestsInLastHour", () => {
     jest.useFakeTimers().setSystemTime(new Date('2024-10-22T11:45:00Z'));
 
     const result = await countRequestsInLastHour(logFilePath);
-    console.log(result, 26)
     expect(result).toEqual({ "/api/users": 1, "/api/orders": 1 });
 
     jest.useRealTimers(); // Kembalikan waktu asli setelah test selesai
