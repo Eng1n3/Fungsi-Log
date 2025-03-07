@@ -1,11 +1,13 @@
 const fs = require('fs');
 const readline = require('readline');
 
-const now = new Date();
 
 exports.countRequestsInLastHour = async (logFilePath) => {
+    const now = new Date();
     const oneHourAgo = new Date(now.getTime() - 60 * 60 * 1000); // Waktu satu jam yang lalu
     const requestCount = {};
+
+    console.log(now)
 
     const fileStream = fs.createReadStream(logFilePath);
     const rl = readline.createInterface({ input: fileStream, crlfDelay: Infinity });
