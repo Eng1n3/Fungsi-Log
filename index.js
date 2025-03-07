@@ -24,4 +24,4 @@ async function countRequestsInLastHour(logFilePath) {
 
 // Contoh pemanggilan fungsi
 const logFilePath = 'server.log';
-const result = countRequestsInLastHour(logFilePath).then(result => console.log(result)).catch(err => console.error(err));
+countRequestsInLastHour(logFilePath).then(result => console.log(result)).catch(err => console.error(err));
